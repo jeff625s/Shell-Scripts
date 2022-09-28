@@ -1,0 +1,13 @@
+#This script will transfer files from your local computer to a target host's temp folder using their IP.
+Param(
+  [Parameter(Mandatory=$True)]
+  [string]
+  $ip,
+  
+   [Parameter(Mandatory=$True)]
+   [string]
+   $localfolder
+)
+echo "Starting the transfer."
+copy-item -path $localfolder\* -destination \\$ip\C$\temp
+echo "Transfer complete."
